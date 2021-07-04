@@ -1,0 +1,35 @@
+<div class="m-4">
+    <div class="mb-3">
+        <label for="" class="form-label">Area médica</label>
+        <select [(ngModel)]="cita.area" name="area" class="form-select form-select-md" aria-label=".form-select-sm example">
+            <option value="" disabled >Seleciones el area medica</option>
+            <option value="general">General</option>
+            <option value="dentista">Dentista</option>
+            <option value="pediatra">Pediatra</option>
+            <option value="nutriologia">Nutriología</option>
+        </select>
+    </div>
+    <div class="mb-3 ">
+        <label for="nombre" class="form-label">Nombre</label>
+        <input [(ngModel)]="cita.nombre" name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
+    </div>
+    <div class="mb-3">
+        <label for="edad" class="form-label">Edad</label>
+        <input [(ngModel)]="cita.edad" name="edad" type="number" class="form-control" id="edad" placeholder="25">
+    </div>
+    <div class="mb-3">
+        <label for="fecha" class="form-label">Fecha de la cita</label>
+        <input [(ngModel)]="cita.fecha" name="fecha" type="date" class="form-control" id="fecha" placeholder="Nombre">
+    </div>
+    <div class="mb-3">
+        <label for="hora" class="form-label">Hora de la cita</label>
+        <input [(ngModel)]="cita.hora" name="hora" type="time" class="form-control" id="hora" placeholder="Nombre">
+    </div>
+    <div class="mb-3">
+        <label for="sintomas" class="form-label">Sintomas</label>
+        <textarea [(ngModel)]="cita.sintomas" name="sintomas" class="form-control" id="sintomas" rows="3"></textarea>
+    </div>
+    <div class="d-flex justify-content-end">
+        <button (click)="enviarCita()" class="btn btn-primary bd-highlight">Enviar</button>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="row container pt-5 mb-3 m-auto head">
+    <div class="col">
+        <div class="card text-center">
+            <h1>AGENDA CITAS</h1>
+        </div>
+    </div>
+</div>
+<div class="row container m-auto">
+
+    <div class="col-md-6 contenedor-form">
+        <div class="card">
+            <app-form (onCita)="agregarCita($event)"></app-form>
+        </div>
+    </div>
+    <div class="col-md-6 mt-4 mt-md-0 contenedor-citas">
+        <div class="card">
+            <app-lista-citas></app-lista-citas>
+        </div>
+    </div>
+</div>
