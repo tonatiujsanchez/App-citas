@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cita } from '../../interfaces/cita.interface';
-import { Time } from '@angular/common';
+import { AreaMedica } from '../../interfaces/area-medica.interface';
 
 @Component({
   selector: 'app-home',
@@ -9,16 +9,46 @@ import { Time } from '@angular/common';
 })
 export class HomeComponent implements OnInit {
 
+  citas: Cita[] = [];
+  areasMedicas:AreaMedica[] = [ 
+    {
+      clave: 'general',
+      desc: 'General'  
+    },
+    {
+      clave: 'dentista',
+      desc: 'Dentista'
+    },
+    {
+      clave: 'pediatra',
+      desc: 'Pediatra'
+    },
+    {
+      clave: 'nutriologia',
+      desc: 'Nutriología'
+    }
+   ];
 
-
-  constructor() { }
+  constructor() { 
+    this.citas = JSON.parse(localStorage.getItem('citas')!) || [];
+  }
 
   ngOnInit(): void {
   }
 
   agregarCita( cita: Cita ){
-    console.log(cita);
-    
+    this.citas.push( cita )    
+    localStorage.setItem( 'citas',JSON.stringify( this.citas) );
+  }
+
+  eliminarCita( idCita: number ){
+    this.citas.forEach( (cita, idx) =>{
+      if( cita.id === idCita ){
+        this.citas.splice( idx, 1 );
+        return;
+      }
+    });
+    localStorage.setItem( 'citas', JSON.stringify( this.citas ));
   }
 
 }

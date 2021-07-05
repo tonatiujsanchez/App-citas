@@ -1,5 +1,6 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Cita } from '../../interfaces/cita.interface';
+import { AreaMedica } from '../../interfaces/area-medica.interface';
 
 @Component({
   selector: 'app-form',
@@ -8,7 +9,9 @@ import { Cita } from '../../interfaces/cita.interface';
 })
 export class FormComponent implements OnInit {
   
+  @Input() areasMedicas: AreaMedica[] = [];
   cita:Cita = {
+    id: 0,
     area: '',
     nombre:'',
     edad: 0,
@@ -29,8 +32,15 @@ export class FormComponent implements OnInit {
       console.log('Por favor llene todos los campos');
       return;
     }
+
+    const cadena:string = (`${ new Date().getUTCFullYear() } ${ new Date().getUTCDate() } ${ new Date().getUTCDay() } ${ new Date().getUTCHours() } ${ new Date().getUTCMinutes() }  ${ new Date().getUTCSeconds()}`).trim();
+    const id:string = cadena.replace(/\s+/g, '');
+
+    this.cita.id = parseInt( id );
+
     this.onCita.emit( this.cita );
     this.cita = {
+      id: 0,
       area: '',
       nombre:'',
       edad: 0,

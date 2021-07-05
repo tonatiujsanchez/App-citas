@@ -30,6 +30,14 @@ textarea{
     padding: 0;
 }
 
+.nav-item{
+    cursor: pointer;
+}
+
+.active{
+    color: indigo;
+    border-bottom: solid 2px indigo;
+}
 .contenedor-citas{
     min-height: 714px;
     max-height: 714px;

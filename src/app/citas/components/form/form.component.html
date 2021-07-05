@@ -3,15 +3,12 @@
         <label for="" class="form-label">Area médica</label>
         <select [(ngModel)]="cita.area" name="area" class="form-select form-select-md" aria-label=".form-select-sm example">
             <option value="" disabled >Seleciones el area medica</option>
-            <option value="general">General</option>
-            <option value="dentista">Dentista</option>
-            <option value="pediatra">Pediatra</option>
-            <option value="nutriologia">Nutriología</option>
+            <option *ngFor="let area of areasMedicas" [value]="area.clave">{{ area.desc }}</option>
         </select>
     </div>
     <div class="mb-3 ">
-        <label for="nombre" class="form-label">Nombre</label>
-        <input [(ngModel)]="cita.nombre" name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre">
+        <label for="nombre" class="form-label">Nombre completo</label>
+        <input [(ngModel)]="cita.nombre" name="nombre" type="text" class="form-control" id="nombre" placeholder="Nombre completo">
     </div>
     <div class="mb-3">
         <label for="edad" class="form-label">Edad</label>

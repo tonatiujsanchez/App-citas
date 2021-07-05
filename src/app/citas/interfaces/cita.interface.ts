@@ -1,7 +1,5 @@
-import { Time } from "@angular/common";
-
-
 export interface Cita{
+    id: number;
     area: string;
     nombre: string;
     edad: number;
