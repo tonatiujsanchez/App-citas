@@ -1,1 +1,21 @@
-<p>ver-cita works!</p>
+<div class="row container m-auto contendor-ver-cita">
+    <div class="col">
+        <div *ngIf="cita" class="card ver-cita">
+            <div class="card-header mb-3 w-100 d-flex justify-content-between align-items-center"
+                  [ngClass]="areaClass( cita.area )">
+
+                <h5 [class]="cita.area == 'pediatra'? 'text-dark' : 'text-white'">{{ getAreaMedica(cita.area) | uppercase }}</h5>
+                <a [class]="cita.area == 'pediatra'? 'text-dark' : 'text-white'" class="nav-link" routerLink="/home">
+                    <i class="bi bi-arrow-left-short" ></i>Regresar
+                </a>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item"><strong>Nombre:</strong> {{ cita.nombre }}</li>
+                <li class="list-group-item"><strong>Edad:</strong> {{ cita.edad }} años</li>
+                <li class="list-group-item"><strong>Fecha de la cita:</strong> {{ cita.fecha }}</li>
+                <li class="list-group-item"><strong>Hora de la cita:</strong> {{cita.hora}}</li>
+                <li class="list-group-item"><strong>Síntomas:</strong> {{ cita.sintomas }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

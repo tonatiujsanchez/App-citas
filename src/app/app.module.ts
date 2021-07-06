@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CitasModule } from './citas/citas.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -10,6 +11,7 @@ import { CitasModule } from './citas/citas.module';
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     CitasModule
   ],
   providers: [],

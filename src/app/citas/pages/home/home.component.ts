@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cita } from '../../interfaces/cita.interface';
 import { AreaMedica } from '../../interfaces/area-medica.interface';
+import { CitasService } from '../../../services/citas.service';
 
 @Component({
   selector: 'app-home',
@@ -10,45 +11,23 @@ import { AreaMedica } from '../../interfaces/area-medica.interface';
 export class HomeComponent implements OnInit {
 
   citas: Cita[] = [];
-  areasMedicas:AreaMedica[] = [ 
-    {
-      clave: 'general',
-      desc: 'General'  
-    },
-    {
-      clave: 'dentista',
-      desc: 'Dentista'
-    },
-    {
-      clave: 'pediatra',
-      desc: 'Pediatra'
-    },
-    {
-      clave: 'nutriologia',
-      desc: 'Nutriología'
-    }
-   ];
+  areasMedicas:AreaMedica[] = [];
 
-  constructor() { 
-    this.citas = JSON.parse(localStorage.getItem('citas')!) || [];
+  constructor( private citasService: CitasService ) { 
+    
   }
 
   ngOnInit(): void {
+    this.citas = this.citasService.allCitas;
+    this.areasMedicas = this.citasService.allAreasMedicas;
   }
 
   agregarCita( cita: Cita ){
-    this.citas.push( cita )    
-    localStorage.setItem( 'citas',JSON.stringify( this.citas) );
+    this.citasService.agregarCita( cita );
   }
 
   eliminarCita( idCita: number ){
-    this.citas.forEach( (cita, idx) =>{
-      if( cita.id === idCita ){
-        this.citas.splice( idx, 1 );
-        return;
-      }
-    });
-    localStorage.setItem( 'citas', JSON.stringify( this.citas ));
+    this.citasService.eliminarCita( idCita );
   }
 
 }

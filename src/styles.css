@@ -19,6 +19,9 @@ h1{
     font-weight: bold;
     font-size: 34px;
 }
+h5{
+    margin: 0;
+}
 textarea{
     height: 150px;
     max-height: 150px;
@@ -94,4 +97,13 @@ textarea{
 }
 .cita .name .cita-nombre{
     font-size: 16px;
+}
+.contendor-ver-cita{
+    padding: 0 35px;
+}
+.ver-cita{
+    max-width: 600px;
+    margin: auto;
+    min-height: 714px;
+    max-height: 714px;
 }
